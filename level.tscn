@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://level.gd" type="Script" id=1]
+[ext_resource path="res://world.tscn" type="PackedScene" id=2]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="world" parent="." instance=ExtResource( 2 )]
+
+[node name="players" type="YSort" parent="."]
+
+sort/enabled = true
+
+

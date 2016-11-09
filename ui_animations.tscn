@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://green-arrows.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "walk_to"
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("walk_to:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("walk_to:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0.5, 0.5 ), Vector2( 1e-05, 1e-05 ) ] }
+
+[node name="ui_animations" type="Node"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/walk_to = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="walk_to" type="Sprite" parent="."]
+
+visibility/opacity = 0.0
+transform/scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 1 )
+
+

@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://lobby.gd" type="Script" id=1]
+[ext_resource path="res://host_menu.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 94.0
+margin/bottom = 40.0
+alignment = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 94.0
+margin/bottom = 14.0
+text = "Lobby"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="players" type="VBoxContainer" parent="VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 18.0
+margin/right = 94.0
+margin/bottom = 18.0
+alignment = 0
+
+[node name="play" type="Button" parent="VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 94.0
+margin/bottom = 42.0
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Play Game"
+flat = false
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
+
+rect/min_size = Vector2( 0, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 46.0
+margin/right = 94.0
+margin/bottom = 174.0
+syntax_highlighting = false
+show_line_numbers = false
+highlight_all_occurrences = false
+caret/block_caret = false
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="menu" parent="." instance=ExtResource( 2 )]
+
+margin/left = 837.0
+margin/top = 23.0
+margin/right = 877.0
+margin/bottom = 63.0
+
+[node name="ip" parent="menu/container"]
+
+text = "192.168.0.11"
+
+[node name="port" parent="menu/container"]
+
+text = "3000"
+
+[connection signal="pressed" from="menu/container/HBoxContainer/host" to="." method="_on_host_pressed"]
+
+[connection signal="pressed" from="menu/container/HBoxContainer/connect" to="." method="_on_connect_pressed"]
+
+[connection signal="pressed" from="menu/container/cancel" to="." method="_on_cancel_pressed"]
+
+
+[editable path="menu"]

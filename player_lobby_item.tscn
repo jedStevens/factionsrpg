@@ -1,0 +1,76 @@
+[gd_scene format=1]
+
+[node name="Panel" type="Panel"]
+
+rect/min_size = Vector2( 320, 64 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 320.0
+margin/bottom = 64.0
+
+[node name="labels" type="HBoxContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+alignment = 0
+
+[node name="username" type="Label" parent="labels"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 1
+margin/left = 27.0
+margin/top = 25.0
+margin/right = 93.0
+margin/bottom = 39.0
+text = "Username"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="character" type="Label" parent="labels"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 1
+margin/left = 155.0
+margin/top = 25.0
+margin/right = 215.0
+margin/bottom = 39.0
+text = "Character"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ready" type="CheckBox" parent="labels"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 250.0
+margin/top = 0.0
+margin/right = 320.0
+margin/bottom = 64.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+text = "Ready\?"
+flat = false
+align = 0
+
+
