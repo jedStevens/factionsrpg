@@ -38,7 +38,7 @@ func _process(delta):
 # Player info, associate ID to data
 var player_info = {}
 # Info we send to other players
-var my_info = { username = "null", character = null, ready = false }
+var my_info = { username = "Girtha", character = "mage", ready = true }
 
 var PlayerItem = preload("res://player_lobby_item.tscn")
 

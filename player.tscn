@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://res/hero-down.png" type="Texture" id=2]
 [ext_resource path="res://ui_animations.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/bar_under.png" type="Texture" id=4]
+[ext_resource path="res://ui/bar_over.png" type="Texture" id=5]
+[ext_resource path="res://ui/bar_health_progress.png" type="Texture" id=6]
+[ext_resource path="res://ui/bar_mana_progress.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 16.0
+radius = 32.1695
 height = 2.0
 
-[node name="player" type="RigidBody2D"]
+[node name="player" type="KinematicBody2D" groups=[ "player" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -18,21 +22,7 @@ shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
-mode = 2
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = 16.0
-damp_override/angular = -1.0
+collision/margin = 0.08
 script/script = ExtResource( 1 )
 __meta__ = { "__editor_plugin_screen__":"2D" }
 speed = 200
@@ -48,7 +38,7 @@ offset = Vector2( -8.09209, -63.0644 )
 
 shape = SubResource( 1 )
 trigger = false
-_update_shape_index = -1
+_update_shape_index = 0
 
 [node name="ui_animations" parent="." instance=ExtResource( 3 )]
 
@@ -58,13 +48,59 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -32.0
-margin/top = -165.0
-margin/right = 34.0
-margin/bottom = -151.0
+margin/left = -29.0
+margin/top = -259.0
+margin/right = 37.0
+margin/bottom = -245.0
 text = "Username"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="health" type="TextureProgress" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -57.0
+margin/top = -243.0
+margin/right = 71.0
+margin/bottom = -195.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 23.0
+range/exp_edit = false
+range/rounded = false
+texture/under = ExtResource( 4 )
+texture/over = ExtResource( 5 )
+texture/progress = ExtResource( 6 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="w" type="TextureProgress" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -57.0
+margin/top = -195.0
+margin/right = 71.0
+margin/bottom = -147.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 23.0
+range/exp_edit = false
+range/rounded = false
+texture/under = ExtResource( 4 )
+texture/over = ExtResource( 5 )
+texture/progress = ExtResource( 7 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
 
 

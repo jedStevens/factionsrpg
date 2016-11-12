@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://death_curse.gd" type="Script" id=1]
+[ext_resource path="res://characters/mage/death_curse.png" type="Texture" id=2]
+[ext_resource path="res://characters/mage/death_bolt_shadow.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "auto"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 1.8, 2 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ 0.0, 1.0, 1.0, 0.0 ] }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 2 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"queue_free" } ] }
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 96.506
+
+[node name="deathcurse" type="KinematicBody2D"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( -2.82556, -50.8169 )
+transform/scale = Vector2( 0.53749, 0.53749 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/auto = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "auto"
+
+[node name="shadow" type="Sprite" parent="."]
+
+visibility/opacity = 0.5
+transform/pos = Vector2( -4.03728, 0 )
+transform/scale = Vector2( 0.38525, 1 )
+texture = ExtResource( 3 )
+
+[node name="seek_area" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="seek_area"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+
