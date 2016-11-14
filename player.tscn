@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://res/hero-down.png" type="Texture" id=2]
@@ -7,12 +7,12 @@
 [ext_resource path="res://ui/bar_over.png" type="Texture" id=5]
 [ext_resource path="res://ui/bar_health_progress.png" type="Texture" id=6]
 [ext_resource path="res://ui/bar_mana_progress.png" type="Texture" id=7]
+[ext_resource path="res://ui/target_flag.png" type="Texture" id=8]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 32.1695
-height = 2.0
+radius = 3.93468
 
 [node name="player" type="KinematicBody2D" groups=[ "player" ]]
 
@@ -33,12 +33,6 @@ character = ""
 transform/pos = Vector2( -0.0323792, -0.083725 )
 texture = ExtResource( 2 )
 offset = Vector2( -8.09209, -63.0644 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
 
 [node name="ui_animations" parent="." instance=ExtResource( 3 )]
 
@@ -102,5 +96,18 @@ texture/over = ExtResource( 5 )
 texture/progress = ExtResource( 7 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="target_flag" type="Sprite" parent="."]
+
+visibility/opacity = 0.0
+transform/pos = Vector2( -0.196671, -0.585098 )
+texture = ExtResource( 8 )
+offset = Vector2( 3.12273, -31.6014 )
 
 

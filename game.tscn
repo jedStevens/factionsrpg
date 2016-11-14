@@ -15,7 +15,7 @@ __meta__ = { "__editor_plugin_screen__":"Script" }
 
 [node name="world" parent="level" instance=ExtResource( 3 )]
 
-[node name="players" type="YSort" parent="level"]
+[node name="objects" type="YSort" parent="level"]
 
 sort/enabled = true
 
